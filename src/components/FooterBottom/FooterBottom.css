@@ -1,0 +1,17 @@
+/**********************************/
+/******** Footer Bottom CSS *******/
+/**********************************/
+.footer-bottom {
+    position: relative;
+    padding: 25px 0;
+    background: #202731;
+}
+
+.footer-bottom a:hover {
+    color: #ff0066;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }

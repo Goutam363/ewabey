@@ -1,0 +1,15 @@
+.card {
+    max-width: 400;
+    margin: 'auto';
+    margin-top: 20;
+  }
+.title {
+    font-size: 20;
+    font-weight: 'bold';
+  }
+.detail {
+    margin-top: 10;
+  }
+.createDate {
+    text-align: 'right';
+  }

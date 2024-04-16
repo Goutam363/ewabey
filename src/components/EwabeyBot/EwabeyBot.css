@@ -1,0 +1,22 @@
+.svg-box {
+  z-index: 1;
+
+  #robot {
+    cursor: pointer;
+  }
+}
+
+/* Media query for screen width less than or equal to 1050px */
+@media screen and (max-width: 1050px) {
+  .svg-box {
+    width: 100vw; /* full width */
+  }
+}
+
+/* Media query for screen width greater than 1050px */
+@media screen and (min-width: 1051px) {
+  .svg-box {
+    width: 1050px; /* fixed width */
+    margin: 0 auto; /* horizontally centering the box */
+  }
+}

@@ -1,0 +1,14 @@
+@media screen and (max-width: 500px) {
+    .emptyBox {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+  
+  /* Media query for screen width greater than 1050px */
+  @media screen and (min-width: 501px) {
+    .emptyBox {
+      width: 100%; /* fixed width */
+      margin: 0 auto; /* horizontally centering the box */
+    }
+  }
