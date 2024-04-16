@@ -17,6 +17,7 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
+  const [isDisabled, setIsDisabled] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setLoggedin, setUsername: setUsernameContext, setProfile, setTokenContext } = useContext(AuthContext);
@@ -24,6 +25,7 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsDisabled(true);
 
     // Handle login logic here
     try {
@@ -58,9 +60,11 @@ export default function Login() {
         setUsername('');
         setPassword('');
   
+        setIsDisabled(false);
         navigate('/'); // Navigate home page
   
       } catch (error) {
+        setIsDisabled(false);
         if(error.code === 'ERR_BAD_REQUEST'){
           toast.error('Check your login credentials!', {
             position: "top-center",
@@ -74,6 +78,7 @@ export default function Login() {
             transition: Bounce,
             });
         } else if(error.code === 'ERR_NETWORK') {
+          setIsDisabled(false);
           toast.warn('Check your internet connection!', {
             position: "top-center",
             autoClose: 5000,
@@ -86,6 +91,7 @@ export default function Login() {
             transition: Bounce,
             });
         } else {
+          setIsDisabled(false);
           toast.error(`Some error occured. Can't login.`, {
             position: "top-center",
             autoClose: 5000,
@@ -145,6 +151,7 @@ export default function Login() {
                     variant="outlined"
                     placeholder="Enter username"
                     value={username}
+                    disabled={isDisabled}
                     onChange={(e) => setUsername(e.target.value)}
                   />
                   <Typography variant="body2" align="right" gutterBottom>
@@ -161,6 +168,7 @@ export default function Login() {
                     placeholder="Enter password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    disabled={isDisabled}
                   />
                   <Typography variant="body2" align="right" gutterBottom>
                     <Link onClick={handleFgPsw} style={{ color: "#002884" }}>
@@ -172,6 +180,7 @@ export default function Login() {
                     variant="contained"
                     color="primary"
                     fullWidth
+                    disabled={isDisabled}
                   >
                     Login
                   </Button>
